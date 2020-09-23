@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function BeersPage() {
-  return <div>I'm the beers page</div>;
+  return <>I'm the beers page</>;
 }
