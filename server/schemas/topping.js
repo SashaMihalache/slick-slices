@@ -1,4 +1,4 @@
-import { FaPepperHot as icon } from 'react-icons/fa'
+import { FaPepperHot as icon } from 'react-icons/fa';
 
 export default {
   // Computer Name
@@ -12,7 +12,7 @@ export default {
       name: 'name',
       title: 'Topping Name',
       type: 'string',
-      description: 'What is the name of the topping?'
+      description: 'What is the name of the topping?',
     },
     {
       name: 'vegetarian',
@@ -20,17 +20,17 @@ export default {
       type: 'boolean',
       description: 'What is the name of the topping?',
       options: {
-        layout: 'checkbox'
-      }
+        layout: 'checkbox',
+      },
     },
   ],
   preview: {
     select: {
       name: 'name',
-      vegetarian: 'vegetarian'
+      vegetarian: 'vegetarian',
     },
     prepare: (fields) => ({
-      title: `${fields.name} ${fields.vegetarian ? '🌱' : ''}`
-    })
-  }
-}
+      title: `${fields.name} ${fields.vegetarian ? '🌱' : ''}`,
+    }),
+  },
+};
