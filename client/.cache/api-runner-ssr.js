@@ -1,5 +1,11 @@
 var plugins = [{
-      plugin: require('/Users/sashamihalache/programming/projects/technology/gatsby/slick-slices/client/gatsby-ssr'),
+      plugin: require('/Users/sasha/programming/projects/technology-based/gatsby/slick-slices/client/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/sasha/programming/projects/technology-based/gatsby/slick-slices/client/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      options: {"plugins":[],"projectId":"wui69z6t","dataset":"production","watchMode":true,"token":"skJQqAWowjYDaZjVKENIfh4b1u1eh2K06gbn7AbjbIrW4MY1x0RFxU80YQ42mC2JS3SmS3pZDRhrhNq9YvFTDncOrwSbR7uHQoZluZTBtK4XDiMl0DzWraAq875oSeTEr0yYLql0WR1T33FNyVh4iJKzfq4umZ8bJW7m6diTETKfofu98saH"},
+    },{
+      plugin: require('/Users/sasha/programming/projects/technology-based/gatsby/slick-slices/client/gatsby-ssr'),
       options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
