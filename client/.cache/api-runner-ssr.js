@@ -3,7 +3,7 @@ var plugins = [{
       options: {"plugins":[]},
     },{
       plugin: require('/Users/sashamihalache/programming/projects/technology/gatsby/slick-slices/client/node_modules/gatsby-source-sanity/gatsby-ssr'),
-      options: {"plugins":[],"projectId":"wui69z6t","dataset":"production","watchMode":true},
+      options: {"plugins":[],"projectId":"wui69z6t","dataset":"production","watchMode":true,"token":"skBOdFkxHwiYhOQJklPCinmsYEjgm5BQlqLDLi9ig9Cs0ZF5yxVpQcdr1ZprjLLQ9X1MI4Z99fwhgK45uQ1jBfSfYs0WEIuyxVPK4aPYoG3CsyKePRmatj0qJLBDCEiNNqTUdQKrMFYXPsBZMxQcMqkMVnMB4s0BOAqLRdOdIFjVifduQ42K"},
     },{
       plugin: require('/Users/sashamihalache/programming/projects/technology/gatsby/slick-slices/client/gatsby-ssr'),
       options: {"plugins":[]},
