@@ -19,7 +19,7 @@ const ToppingsStyles = styled.div`
       background: white;
       padding: 2px 5px;
     }
-    .active {
+    &[aria-current='page'] {
       background: var(--yellow);
     }
   }
@@ -34,11 +34,11 @@ function countPizzasInToppings(pizzas) {
       // check if this is an existing topping
       const existingTopping = acc[topping.id];
       if (existingTopping) {
-        console.log('Existing Topping', existingTopping.name);
+        // console.log('Existing Topping', existingTopping.name);
         //  if it is, increment by 1
         existingTopping.count += 1;
       } else {
-        console.log('New Topping', topping.name);
+        // console.log('New Topping', topping.name);
         // otherwise create a new entry in our acc and set it to one
         acc[topping.id] = {
           id: topping.id,
@@ -55,9 +55,11 @@ function countPizzasInToppings(pizzas) {
   return sortedToppings;
 }
 
-export default function ToppingsFilter() {
+export default function ToppingsFilter({ activeTopping }) {
   // Get a list of all the toppings
   // Get a list of all the Pizzas with their toppings
+  console.log(activeTopping);
+
   const { pizzas } = useStaticQuery(graphql`
     query {
       pizzas: allSanityPizza {
@@ -75,6 +77,10 @@ export default function ToppingsFilter() {
 
   return (
     <ToppingsStyles>
+      <Link to="/pizzas">
+        <span className="name">All</span>
+        <span className="count">{pizzas.nodes.length}</span>
+      </Link>
       {toppingsWithCounts.map((topping) => (
         <Link to={`/topping/${topping.name}`} key={topping.id}>
           <span className="name">{topping.name}</span>
