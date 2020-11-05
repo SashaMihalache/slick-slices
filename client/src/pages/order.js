@@ -13,7 +13,12 @@ import calculateOrderTotal from "../utils/calculateOrderTotal";
 
 export default function OrderPage({ data }) {
   const pizzas = data.pizzas.nodes;
-  const { values, updateValue } = useForm({ name: "", email: "" });
+  const { values, updateValue } = useForm({
+    name: "",
+    email: "",
+    mapleSyrup: "",
+  });
+
   const {
     order,
     addToOrder,
@@ -49,6 +54,13 @@ export default function OrderPage({ data }) {
             type="email"
             name="email"
             value={values.email}
+            onChange={updateValue}
+          />
+          <input
+            className="mapleSyrup"
+            type="mapleSyrup"
+            name="mapleSyrup"
+            value={values.mapleSyrup}
             onChange={updateValue}
           />
         </fieldset>
