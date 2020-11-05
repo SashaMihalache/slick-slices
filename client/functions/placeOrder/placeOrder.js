@@ -32,13 +32,20 @@ function generateOrderEmail({ order, total }) {
   </div>`;
 }
 
+async function wait(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 exports.handler = async (event, context) => {
+  await wait(3000);
+
   const body = JSON.parse(event.body);
-  console.log(body);
   const requiredFields = ["email", "name", "order"];
 
   for (const field of requiredFields) {
-    console.log(`Checking that ${field} is good`);
+    console.log(`Checking that ${field} is good: ${body[field]}`);
     if (!body[field]) {
       return {
         statusCode: 400,
@@ -47,6 +54,17 @@ exports.handler = async (event, context) => {
         }),
       };
     }
+  }
+
+  // make sure they actually have items in that order
+
+  if (!body.order.length) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "Why would you order nothing",
+      }),
+    };
   }
 
   const info = await transporter.sendMail({

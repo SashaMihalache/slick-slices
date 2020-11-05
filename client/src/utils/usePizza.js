@@ -27,7 +27,6 @@ export default function usePizza({ pizzas, values }) {
 
     setLoading(true);
     setError(null);
-    setMessage(null);
 
     const body = {
       order: attachNamesAndPrices(order, pizzas),
@@ -49,8 +48,10 @@ export default function usePizza({ pizzas, values }) {
 
     const text = JSON.parse(await res.text());
 
+    console.log("text", text);
+
     // check if everything worked
-    if (res.status >= 400 && res.status < 400) {
+    if (res.status >= 400 && res.status < 600) {
       setLoading(false);
       setError(text.message);
     } else {
