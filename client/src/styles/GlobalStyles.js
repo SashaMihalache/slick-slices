@@ -27,6 +27,12 @@ const GlobalStyles = createGlobalStyle`
     border-width: 1px;
   }
 
+  .tilt {
+    transform: rotate(-2deg);
+    position: relative;
+    display: inline-block;
+  }
+
   button {
     background: var(--red);
     color: white;

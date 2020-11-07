@@ -1,5 +1,18 @@
 import { useEffect, useState } from 'react';
 
+const deets = `
+  name
+  _id
+  image {
+    asset {
+      url
+      metadata {
+        lqip
+      }
+    }
+  }
+`;
+
 export default function useLatestData() {
   // hot slices
   const [hotSlices, setHotSlices] = useState();
@@ -21,10 +34,10 @@ export default function useLatestData() {
             StoreSettings(id: "downtown") {
               name
               slicemaster {
-                name
+                ${deets}
               }
               hotSlices {
-                name
+                ${deets}
               }
             }
           }
@@ -33,9 +46,12 @@ export default function useLatestData() {
     })
       .then((res) => res.json())
       .then((res) => {
-        // check for errors
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSlicemasters(res.data.StoreSettings.slicemaster);
+      })
+      .catch((err) => {
+        console.log('SHOOOT');
+        console.log(err);
       });
   }, []);
 
