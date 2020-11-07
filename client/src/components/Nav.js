@@ -47,9 +47,33 @@ const NavStyles = styled.nav`
     &:hover {
       color: var(--red);
     }
-    &[aria-current='page'] {
-      color: var(--red);
     }
+  }
+
+  @media(max-width: 600px) {
+    --columns: 4;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--grey);
+    padding-bottom: 2rem;
+
+    ul {
+      grid-template-rows: auto auto;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      justify-items: center;
+    }
+
+    .logo-item {
+      order: 0;
+      grid-column: 1 / -1;
+    }
+
+    .logo {
+      transform: none;
+    }
+  }
+
+  @media(max-width: 500px) {
+    --columns: 2;
   }
 `;
 
@@ -63,7 +87,7 @@ export default function Nav() {
         <li>
           <Link to="/pizzas/">Pizza Menu</Link>
         </li>
-        <li>
+        <li className="logo-item">
           <Logo to="/">LOGO</Logo>
         </li>
         <li>
